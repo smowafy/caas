@@ -1,22 +1,25 @@
 package main
 
-import(
-  "log"
-  "github.com/smowafy/caas/cruntime"
+import (
+	"github.com/smowafy/caas/cruntime"
+	"log"
 )
 
+const ContainerId = "my-first-container"
+const Container2Id = "my-second-container"
+
 func main() {
-  cr, err := cruntime.SetupContainerd()
+	cr, err := cruntime.SetupContainerd()
 
-  if err != nil {
-    log.Fatal(err)
-  }
+	if err != nil {
+		log.Fatal(err)
+	}
 
-  containers, err := cr.ListContainers()
+	containers, err := cr.ListContainers()
 
-  if err != nil {
-    log.Fatal(err)
-  }
+	if err != nil {
+		log.Fatal(err)
+	}
 
-  log.Printf("%v\n", containers)
+	log.Printf("%v\n", containers)
 }
